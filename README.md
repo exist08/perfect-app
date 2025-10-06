@@ -1,97 +1,205 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# 🎯 Perfect App
 
-# Getting Started
+A beautiful, feature-rich React Native productivity app with stunning animations and modern UI design.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+![React Native](https://img.shields.io/badge/React%20Native-0.81.4-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-blue)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Step 1: Start Metro
+## ✨ Features
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+### 📝 **Todos**
+- Create, edit, and delete todos
+- Mark todos as complete with animated checkboxes
+- Clean, card-based design
+- Persistent storage with MMKV
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### 📓 **Notes**
+- Sticky note-style design with 8 vibrant colors
+- Masonry grid layout (Pinterest-style)
+- Handwriting fonts for authentic feel
+- Interactive animations (rotate, scale)
+- Long press to delete
+- Full-featured editor modal
 
-```sh
-# Using npm
-npm start
+### ⚡ **Tasks**
+- Priority-based task management (Low, Medium, High)
+- Color-coded priority system
+- Dual filtering (status + priority)
+- Smart sorting by priority and date
+- Rich task cards with descriptions
+- Live statistics dashboard
 
-# OR using Yarn
-yarn start
+### 📅 **Events**
+- Timeline-style layout with connecting dots
+- 5 event categories (Work, Personal, Social, Health, Other)
+- Smart date labels (Today, Tomorrow)
+- Reminder toggle system
+- Location support
+- Auto-sorting by date/time
+- Special "Next Up" indicator
+
+### 🎨 **Beautiful Animations**
+- Powered by React Native Reanimated v4
+- Lottie animations for backgrounds
+- Spring physics for natural interactions
+- Staggered entrance animations
+- Interactive press feedback
+- Smooth transitions throughout
+
+## 🚀 Tech Stack
+
+- **React Native** 0.81.4
+- **TypeScript** 5.8.3
+- **React Navigation** v7 (Native Stack, Bottom Tabs, Drawer)
+- **React Native Reanimated** v4.1.2
+- **Lottie React Native** v7.3.4
+- **MMKV** v3.3.3 (Fast, encrypted storage)
+- **React Native Gesture Handler** v2.28.0
+- **React Native Safe Area Context** v5.6.1
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js >= 20
+- React Native development environment set up
+- iOS: Xcode and CocoaPods
+- Android: Android Studio and SDK
+
+### Steps
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/perfect-app.git
+   cd perfect-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Install iOS pods** (iOS only)
+   ```bash
+   cd ios && pod install && cd ..
+   ```
+
+4. **Run the app**
+   
+   For iOS:
+   ```bash
+   npm run ios
+   ```
+   
+   For Android:
+   ```bash
+   npm run android
+   ```
+
+## 📱 Project Structure
+
+```
+PerfectApp/
+├── src/
+│   ├── assets/           # Lottie animations
+│   ├── components/       # Reusable components
+│   │   ├── TodoItem.tsx
+│   │   ├── NoteCard.tsx
+│   │   ├── TaskCard.tsx
+│   │   └── EventCard.tsx
+│   ├── screens/          # App screens
+│   │   ├── Splash.tsx
+│   │   ├── Home.tsx
+│   │   ├── Todos.tsx
+│   │   ├── Notes.tsx
+│   │   ├── Tasks.tsx
+│   │   └── UpcomingEvents.tsx
+│   ├── types/            # TypeScript types
+│   │   ├── todo.ts
+│   │   ├── note.ts
+│   │   ├── task.ts
+│   │   └── event.ts
+│   └── utils/
+│       └── Constants.tsx # Screen dimensions
+├── App.tsx               # App entry point
+├── android/              # Android native code
+├── ios/                  # iOS native code
+└── package.json
 ```
 
-## Step 2: Build and run your app
+## 🎨 Design Philosophy
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+- **Modern UI**: Glass-morphism effects with semi-transparent backgrounds
+- **Smooth Animations**: Every interaction is animated for premium feel
+- **Consistent Design**: Unified color scheme and spacing system
+- **Responsive**: Adapts to all screen sizes
+- **Performance**: Native driver animations for 60fps
+- **Persistence**: All data saved locally with MMKV
 
-### Android
+## 🔧 Configuration
 
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### Babel Config
+The app uses `react-native-reanimated` plugin for optimized animations:
+```javascript
+plugins: ['react-native-reanimated/plugin']
 ```
 
-### iOS
+### Metro Config
+Configured to work with Lottie animations and custom assets.
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+## 📸 Screenshots
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+*Add your screenshots here*
 
-```sh
-bundle install
-```
+## 🎯 Key Features Breakdown
 
-Then, and every time you update your native dependencies, run:
+### Todos Screen
+- ✅ Checkbox animations with spring physics
+- 📊 Active/Completed statistics
+- 🧹 Clear completed button
+- 💾 MMKV persistent storage
 
-```sh
-bundle exec pod install
-```
+### Notes Screen
+- 📌 Sticky tape visual effect
+- 📄 Page curl shadow effect
+- 🎨 8 pastel color options
+- 🔄 Random rotation for natural look
+- 📱 Two-column masonry layout
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Tasks Screen
+- 🎯 Three priority levels
+- 🏷️ Color-coded priority bars
+- 🔍 Dual filtering system
+- 📝 Rich descriptions
+- 📊 Live statistics
 
-```sh
-# Using npm
-npm run ios
+### Events Screen
+- ⏱️ Timeline visualization
+- 🔔 Reminder system
+- 📍 Location tracking
+- 🏷️ 5 category system
+- ⚡ Next event highlighting
 
-# OR using Yarn
-yarn ios
-```
+## 🤝 Contributing
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+## 📄 License
 
-## Step 3: Modify your app
+This project is licensed under the MIT License.
 
-Now that you have successfully run the app, let's make changes!
+## 👨‍💻 Author
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+Created with ❤️ by Anurag
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 🙏 Acknowledgments
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- React Native team for the amazing framework
+- Lottie team for beautiful animations
+- MMKV for fast storage solution
+- React Native Reanimated team for smooth animations
 
-## Congratulations! :tada:
+---
 
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Note**: This is a productivity app designed to showcase modern React Native development with beautiful animations and clean architecture.

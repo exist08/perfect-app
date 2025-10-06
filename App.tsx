@@ -1,45 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import Home from './src/screens/Home'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Splash from './src/screens/Splash'
+import Todos from './src/screens/Todos'
+import Tasks from './src/screens/Tasks'
+import Notes from './src/screens/Notes'
+import UpcomingEvents from './src/screens/UpcomingEvents'
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+const Stack = createNativeStackNavigator()
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
+const App = () => {
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
+    <GestureHandlerRootView style={{ flex: 1 }}>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade', animationMatchesGesture: true }}>
+        <Stack.Screen name="Splash" component={Splash} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Todos" component={Todos} />
+        <Stack.Screen name="Tasks" component={Tasks} />
+        <Stack.Screen name="Notes" component={Notes} />
+        <Stack.Screen name="UpcomingEvents" component={UpcomingEvents} />
+      </Stack.Navigator>  
+    </NavigationContainer>
+    </GestureHandlerRootView>
+  )
 }
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+export default App
 
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
-
-export default App;
+const styles = StyleSheet.create({})
