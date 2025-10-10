@@ -12,7 +12,7 @@ const Home = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            navigation.navigate('UpcomingEvents' as never)
+            navigation.navigate('Todos' as never)
         }, 3000)
     }, [])
 
@@ -37,7 +37,25 @@ const Home = () => {
             <Animated.View style={styles.notesContainer} entering={BounceInDown.duration(500).delay(900).easing(Easing.bounce)}>
                 <Animated.Text style={styles.notes}>NOTES</Animated.Text>
             </Animated.View>
+            <Animated.View style={styles.notesContainer} entering={BounceInDown.duration(500).delay(900).easing(Easing.bounce)}>
+                <Animated.Text style={styles.notes}>EVENTS</Animated.Text>
+            </Animated.View>
         </Animated.View>
+        {/* Temporary Buttons */}
+        <View>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('Todos' as never)}>
+                <Text style={styles.buttonText}>TODOS</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('Tasks' as never)}>
+                <Text style={styles.buttonText}>TASKS</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('Notes' as never)}>
+                <Text style={styles.buttonText}>NOTES</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate('UpcomingEvents' as never)}>
+                <Text style={styles.buttonText}>EVENTS</Text>
+            </Pressable>
+        </View>
     </View>
   )
 }
@@ -98,6 +116,7 @@ const styles = StyleSheet.create({
     },
     taskNnotesContainer: {
         flexDirection: 'row',
+        flexWrap: 'wrap',
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '100%',
@@ -105,6 +124,7 @@ const styles = StyleSheet.create({
     },
     tasksContainer: {
         flex: 1,
+        width: '48%',
         aspectRatio: 1,
         justifyContent: 'center',
         alignItems: 'center',

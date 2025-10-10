@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
 import Home from './src/screens/Home'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native'
@@ -16,7 +15,7 @@ const App = () => {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade', animationMatchesGesture: true }}>
+      <Stack.Navigator screenOptions={{ headerShown: false, animation: 'fade', animationMatchesGesture: true }} id={undefined}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Todos" component={Todos} />

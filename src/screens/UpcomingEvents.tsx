@@ -18,13 +18,13 @@ import { MMKV } from 'react-native-mmkv'
 import Animated, { FadeInDown, FadeIn, BounceIn, ZoomIn } from 'react-native-reanimated'
 import LottieView from 'lottie-react-native'
 import EventCard from '../components/EventCard'
+import { useMMKVStorage } from '../store/mmkvStorage'
 
-const storage = new MMKV()
 const EVENTS_KEY = 'events'
 
 const UpcomingEvents = () => {
   const insets = useSafeAreaInsets()
-  const [events, setEvents] = useState<Event[]>([])
+  const [events, setEvents, removeEvents] = useMMKVStorage(EVENTS_KEY, [])
   const [modalVisible, setModalVisible] = useState(false)
   const [editingEvent, setEditingEvent] = useState<Event | null>(null)
   const [title, setTitle] = useState('')
@@ -34,18 +34,6 @@ const UpcomingEvents = () => {
   const [location, setLocation] = useState('')
   const [category, setCategory] = useState<EventCategory>('personal')
 
-  // Load events from MMKV on mount
-  useEffect(() => {
-    const storedEvents = storage.getString(EVENTS_KEY)
-    if (storedEvents) {
-      setEvents(JSON.parse(storedEvents))
-    }
-  }, [])
-
-  // Save events to MMKV whenever they change
-  useEffect(() => {
-    storage.set(EVENTS_KEY, JSON.stringify(events))
-  }, [events])
 
   const openNewEventModal = () => {
     setEditingEvent(null)

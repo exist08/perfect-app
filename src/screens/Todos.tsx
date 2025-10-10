@@ -5,7 +5,7 @@ import { SVW } from '../utils/Constants'
 import TodoItem from '../components/TodoItem'
 import { Todo } from '../types/todo'
 import { MMKV } from 'react-native-mmkv'
-import Animated, { FadeInDown, FadeInUp } from 'react-native-reanimated'
+import Animated, { FadeInDown, FadeInUp, LinearTransition } from 'react-native-reanimated'
 import LottieView from 'lottie-react-native'
 
 const storage = new MMKV()
@@ -126,7 +126,8 @@ const Todos = () => {
             <Text style={styles.emptySubtext}>Add your first task above</Text>
           </Animated.View>
         ) : (
-          <FlatList
+          <Animated.FlatList
+          layout={LinearTransition}
             data={todos}
             keyExtractor={(item) => item.id}
             renderItem={({ item, index }) => (
